@@ -1,6 +1,5 @@
 import bot from "./assets/bot.png";
 import user from "./assets/user.png";
-import axios from "axios";
 
 const form = document.querySelector("form");
 const chatContainer = document.querySelector("#chat_container");
