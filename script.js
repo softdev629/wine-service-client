@@ -24,9 +24,24 @@ function typeText(element, text) {
 
   let interval = setInterval(() => {
     if (index < text.length) {
-      element.innerHTML += text.charAt(index);
+      if (text.charAt(index) === "<" && text.charAt(index + 1) === "a") {
+        let linkHTML = "";
+        for (; ; ++index) {
+          if (
+            text.charAt(index - 3) == "/" &&
+            text.charAt(index - 2) == "a" &&
+            text.charAt(index - 1) == ">"
+          )
+            break;
+          linkHTML += text.charAt(index);
+        }
+        element.insertAdjacentHTML("beforeend", linkHTML);
+      } else {
+        element.innerHTML += text.charAt(index);
+        ++index;
+      }
+
       chatContainer.scrollTop = chatContainer.scrollHeight;
-      ++index;
     } else {
       clearInterval(interval);
     }

@@ -144,3 +144,11 @@ form img {
   height: 30px;
   border-radius: 50%;
 }
+
+a {
+  color: white;
+}
+
+a:hover {
+  color: #5436DA;
+}
